@@ -99,10 +99,9 @@ Mtv_web::Mtv_web(PbxMtvSystem *mtvsystem, Hardware_diagnostics *hardware_diagnos
 /*---------------------------------------------------------------------------*/
 int Mtv_web::get_model_device(){
     #if (BOARD_REV==0)
-    qDebug(category) << " 100 " <<
-        "\n\t\tBOARD_REV : " << BOARD_REV <<
-        "\n\t\tPATH_TO_MODEL_DEVICE_FILE : " << PATH_TO_MODEL_DEVICE_FILE <<
-        "\n\t\tget PATH_TO_MODEL_DEVICE_FILE : " << get_value(PATH_TO_MODEL_DEVICE_FILE);
+    qDebug(category) << "\n\t\tBOARD_REV : " << BOARD_REV
+                     << "\n\t\tPATH_TO_MODEL_DEVICE_FILE : " << PATH_TO_MODEL_DEVICE_FILE
+                     << "\n\t\tPATH_TO_MODEL_DEVICE_FILE : " << get_value(PATH_TO_MODEL_DEVICE_FILE);
     if(get_value(PATH_TO_MODEL_DEVICE_FILE))
         return 0;
     else
@@ -1192,10 +1191,9 @@ void Mtv_web::Settings_Read(){
         dns_name = settings.value("dns_name", "8.8.4.4").toString();
     settings.endGroup();
     set_sys_conf();
-    qDebug(category) << " 1178 " // ign
-             "\n\t\tntp_server : " << ntp_server
-             << "\n\t\tdns_name : " << dns_name
-             << "\n\t\ttime_zone : " << time_zone;
+    qDebug(category) << "\n\t\tntp_server : " << ntp_server
+                    << "\n\t\tdns_name : " << dns_name
+                    << "\n\t\ttime_zone : " << time_zone;
 } // End "Settings_Read"
 
 void Mtv_web::Check(){

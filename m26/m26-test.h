@@ -4,7 +4,6 @@
 #include <QtCore/QObject>
 #include "mb86m26_control.h"
 #include "../rtmp/rtmp-streamer.h"
-//#include "librtmp/rtmp.h" // ign sudo apt install librtmp-dev
 
 class m26test : public QObject
 {

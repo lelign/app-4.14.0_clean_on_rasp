@@ -1,0 +1,21 @@
+
+
+m26/m26-test.cpp
+    m26_a_control = new mb86m26_control(this, QString("gpio457"));
+
+some errors
+    #include <libusb.h>
+    // #include <libusb-1.0/libusb.h> // ign sudo apt install libusb-1.0-0-dev
+
+    #include "../rtmp/rtmp-streamer.h"
+    //#include "librtmp/rtmp.h" // ign sudo apt install librtmp-dev
+
+        after this
+            Rtmp_streamer * streamer; <= error with Rtmp_streamer possible RTMP_*
+
+можно забить на это, достаточно было грамотно расставить GPIO в м26
+Segmentation fault больше не появляетсся после sudo ./m26-eeprom
+
+QIODevice::write (QFile, "/var/volatile/gpio/led_8/var/volatile/gpio/led_9"): device not open
+б-ть, запятую пропустил!
+

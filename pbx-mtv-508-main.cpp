@@ -35,16 +35,4 @@ int main(int argc, char *argv[])
         return a.exec();
 }
 
-/*
- * pbx-mtv-508-main.cpp     34      PbxMtv508 mtv508;
- * pbx-mtv-508.h            25 -31  explicit PbxMtv508();
- * pbx-mtv-508.cpp          20      PbxMtv508::PbxMtv508(       qDebug() << "Program start";
- * pbx-mtv-508.cpp          28      mtvsystem = new PbxMtvSystem
- * mtv-system.cpp           265     anc_reader = new AncReader(ANCIN, this); anc_reader->start();
- *      anc-reader.cpp data.size :  0
-        ts-reader.cpp 47  wait_satus :  false  data_invalid
-        anc-reader.cpp data.size :  0
-
- *
- *
- * */
+/**/

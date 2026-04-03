@@ -8,7 +8,7 @@
 
 #include <QTimer> // ign
 
-#define LED_HPS_A  "/gpio/gpio518/value" // ign
+#define LED_HPS_A  "/sys/class/gpio/gpio518/value" // ign
 
 QT_USE_NAMESPACE
 static QLoggingCategory category("websocket-server"); // ign
@@ -31,7 +31,7 @@ WebSocketServer::WebSocketServer(quint16 port, bool debug, QObject *parent) :
                 connect(m_pWebSocketServer, &QWebSocketServer::closed, this, &WebSocketServer::closed);
         }
 
-        qDebug(category) << " 30 created"; // ign
+        qDebug(category) << "\t\tcreated"; // ign
         /*flash led_hps_a long/short when message on websocketserver*/
         timer_led_hps_a = new QTimer; // ign
         timer_led_hps_a->start(timer_set); // ign
@@ -155,10 +155,12 @@ void WebSocketServer::socketDisconnected()
 
 void WebSocketServer::slot_led_hps_a(){
         
-        int state = get_value(LED_HPS_A);
-        if(state == 0){
-                set_state(LED_HPS_A, "1");                
-        }      
+        if(show_err){
+        int state = get_value(LED_HPS_A);        
+                if(state == 0){
+                        set_state(LED_HPS_A, "1");                
+                }   
+        }   
 }
 
 
@@ -169,7 +171,10 @@ QString line;
 int value;
     QFile file(file_name);
     if (!file.open(QIODevice::ReadOnly)){
-        qDebug(category) << "Could not open file" << file_name;
+        if(show_err){
+            qDebug(category) << "Could not open file" << file_name;
+            show_err = false;
+        }
         return -1;
     }
 
@@ -185,9 +190,12 @@ void WebSocketServer::set_state(QString file_name, const char *state)
 {
     QFile file(file_name);
     if(!file.open(QIODevice::ReadWrite)){
-        qDebug(category) << "Could not open file" << file_name;
+        if(show_err){
+            qDebug(category) << "Could not open file" << file_name;
+            show_err = false;
+        }
     }
-    qDebug(category) << "LED_HPS_A : " << state;
+    //qDebug(category) << "LED_HPS_A : " << state;
     file.write(state);
     file.close();
 }

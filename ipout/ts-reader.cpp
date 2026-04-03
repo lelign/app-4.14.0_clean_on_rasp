@@ -6,10 +6,13 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <QDebug>
+#include <QLoggingCategory>
 #include "ts-reader.h"
 
 #define QUEUE_SIZE (1024)
 #define BUF_SIZE (16*1024)
+
+static QLoggingCategory category("ts-reader"); // ign
 
 TsReader::TsReader() :
         input_enabled(1),
@@ -43,7 +46,7 @@ data_t TsReader::get_data(void)
         else{
                 mutex.unlock();
                 if (show_debug){
-                    qDebug() << "ts-reader.cpp 46 \t\tneverend cicle \n\t\twait_satus : " << wait_satus;
+                    qDebug(category) << "neverend cicle \twait_satus : " << wait_satus;
                     show_debug = false;
                 }
                 return data_invalid;

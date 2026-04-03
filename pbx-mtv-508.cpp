@@ -19,7 +19,8 @@ void data_ready(uint8_t * data, int len, void * ctx)
 //PbxMtv508::PbxMtv508() // ign
 PbxMtv508::PbxMtv508(bool watchdog)
 {
-    qDebug() << "Program start";
+   
+    qDebug(category) << "Program start";
 
     this->watchdog = new Watchdog(watchdog);
 
@@ -101,7 +102,7 @@ PbxMtv508::PbxMtv508(bool watchdog)
                     mtv_snmp, &Mtv_snmp::slot_set_common_alarm);
     
     device_config();
-    qDebug() << "pbx-mtv-508.cpp 104 n\t\tBOARD_REV : " << BOARD_REV;
+    qDebug(category) << "\tBOARD_REV : " << BOARD_REV;
     layout->draw_overlay();
     layout->routing_source_video();
 

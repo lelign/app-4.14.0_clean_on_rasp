@@ -24,7 +24,7 @@
 #define SOLO_DISABLE  "/var/volatile/gpio/SOLO_DISABLE"
 #define TIME_COUNTER "/var/volatile/gpio/TIME_COUNTER"
 
-#define LED_HPS_B  "/gpio/gpio517/value" // ign
+#define LED_HPS_B  "/sys/class/gpio/gpio517/value" // ign
 //#define LED_HPS_A  "/gpio/gpio518/value" // ign
 
 #else
@@ -221,15 +221,16 @@ void Gpio::slot_led_hps_a(){
 
 
 void Gpio::slot_led_hps_b(){
-    int state = get_value(LED_HPS_B);
-    if(state == 0){
-        set_state(LED_HPS_B, "1");
-        //qDebug(category) << "LED_HPS_B OFF";
-    }else{
-        set_state(LED_HPS_B, "0");
-        //qDebug(category) << "LED_HPS_B ON";
-    }
-
+    if(show_err){
+            int state = get_value(LED_HPS_B);
+            if(state == 0){
+                set_state(LED_HPS_B, "1");
+                //qDebug(category) << "LED_HPS_B OFF";
+            }else{
+                set_state(LED_HPS_B, "0");
+                //qDebug(category) << "LED_HPS_B ON";
+            }
+    } 
 }
 
 
@@ -240,7 +241,10 @@ QString line;
 int value;
     QFile file(file_name);
     if (!file.open(QIODevice::ReadOnly)){
-        qDebug(category) << "Could not open file" << file_name;
+        if(show_err){
+            qDebug(category) << "Could not open file" << file_name;
+            show_err = false;
+        }
         return -1;
     }
 
@@ -256,7 +260,11 @@ void Gpio::set_state(QString file_name, const char *state)
 {
     QFile file(file_name);
     if(!file.open(QIODevice::ReadWrite)){
-        qDebug(category) << "Could not open file" << file_name;
+        if(show_err){
+            qDebug(category) << "Could not open file" << file_name;
+            show_err = false;
+        }
+        
     }
     file.write(state);
     file.close();

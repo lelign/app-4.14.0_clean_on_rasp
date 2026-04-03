@@ -7,7 +7,6 @@
 #include <QWaitCondition>
 #include <QMutex>
 #include <libusb.h>
-// #include <libusb-1.0/libusb.h> // ign sudo apt install libusb-1.0-0-dev
 
 #define USB_MB_VENDOR_ID 0x04c5
 #define USB_MB_SPI_PRODUCT_ID 0x202f
@@ -36,7 +35,7 @@
 #define FIRMWARE_ENC_FILE "/var/mb86m21_assp_nsec_enc_h.bin"
 #define FIRMWARE_LDENC_FILE "/var/mb86m21_assp_nsec_ldenc_h.bin"
 //#define GPIO_VALUE "/sys/class/gpio/%s/value"
-#define GPIO_VALUE "/gpio/%s/value" // ign
+#define GPIO_VALUE "/var/volatile/gpio/%s" // ign
 
 // 458
 

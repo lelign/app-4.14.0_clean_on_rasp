@@ -10,7 +10,7 @@ const QStringList  path_to_led_sdi_list =
     "/var/volatile/gpio/led_5", /* led 5 */
     "/var/volatile/gpio/led_6", /* led 6 */
     "/var/volatile/gpio/led_7", /* led 7 */
-    "/var/volatile/gpio/led_8"  /* led 8 */
+    "/var/volatile/gpio/led_8",  /* led 8 */
     "/var/volatile/gpio/led_9", /* led 9 */
     "/var/volatile/gpio/led_10", /* led 10 */
     "/var/volatile/gpio/led_11", /* led 11 */
@@ -27,7 +27,7 @@ const QStringList  path_to_led_sdi_list =
     "/var/volatile/gpio/led_5", /* led 5 */
     "/var/volatile/gpio/led_6", /* led 6 */
     "/var/volatile/gpio/led_7", /* led 7 */
-    "/var/volatile/gpio/led_8"  /* led 8 */
+    "/var/volatile/gpio/led_8", /* led 8 */
     "/var/volatile/gpio/led_9", /* led 9 */
     "/var/volatile/gpio/led_10", /* led 10 */
     "/var/volatile/gpio/led_11", /* led 11 */

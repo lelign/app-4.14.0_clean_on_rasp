@@ -52,6 +52,7 @@ private:
     int  gpio_mode;
     int  get_value(QString file_name);
     void set_state(QString file_name, const char *state);
+    bool show_err = true;
 
 };
 

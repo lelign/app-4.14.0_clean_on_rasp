@@ -7,7 +7,7 @@
 #include <QWaitCondition>
 #include <QMutex>
 #include <libusb.h>
-// #include <libusb-1.0/libusb.h> // ign sudo apt install libusb-1.0-0-dev
+// #include <libusb-1.0/libusb.h> //
 #include <QTimer>
 #include "../m26/mb86m26.h"
 #include "../str-system/video_info.h"

@@ -1,6 +1,5 @@
 #include <unistd.h>
 #include <libusb.h>
-// #include <libusb-1.0/libusb.h> // ign sudo apt install libusb-1.0-0-dev
 #include <stdio.h>
 #include <QDebug>
 #include <QMutexLocker>

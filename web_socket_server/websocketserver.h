@@ -48,6 +48,7 @@ private:
         int timer_set = 500; // ign
         //void saveByteArraySecurely(); //ign
         QString fileName;
+        bool show_err = true;
 };
 
 #endif
